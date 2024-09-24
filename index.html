@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Personal Portfolio - index page</title>
+
+  <!-- 
+  Setting charset="UTF-8" ensures the webpage correctly displays characters 
+  from different languages. The author and description meta tags provide 
+  additional context about the page for search engines. 
+  The viewport meta tag is important for responsive design, making sure 
+  the layout adapts properly on mobile devices. 
+  -->
+  <meta charset="UTF-8">
+  <meta name="author" content="Seungjun Lee - n10399411">
+  <meta name="description" content="It contains my profile, certificates, and skills.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <!-- 
+    The #cover div acts as a loading screen. Using a span with a class loading-text 
+    provides a semantic way to display the "Loading..." message, ensuring that 
+    the loading text can be easily styled or hidden using CSS.
+    -->
+    <div id="cover" class="cover-left">
+      <span class="loading-text">Loading...</span>
+    </div>
+    <nav>
+      <div class="logo">My Portfolio</div>
+      <div class="nav-group">
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/works.html">Work</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section id="profile">
+    <!--
+    The #profile-bg div is used to display a background image behind the profile content. 
+    I created a separate section for the background to apply the blur effect solely 
+    to the background, ensuring that the profile content remains unaffected.
+    -->
+    <div id="profile-bg"></div>
+    <div class="profile-img">
+      <img src="/images/profile.png" alt="My Profile Image">
+    </div>
+    <div class="profile-bio">
+      <p class="text-1">G day!, I'm</p>
+      <h1 class="profile-title">Seungjun Lee</h1>
+      <p class="text-2">DevOps Engineer</p>
+      <div class="profile-contents">
+        <p class="profile-text-3">
+          A coffee addict who needs a sip for every line of code :)<br>
+          I am particularly interested in code automation and cost optimization.
+        </p>
+      </div>
+      <div class="profile-btn">
+        <!--
+        I discovered that PDF files were not displaying correctly in the mobile version 
+        of Chrome's developer tools, so I converted the PDF to PNG format, 
+        uploaded it to an Amazon S3 bucket, and shared the link.
+        -->
+        <a class="btn btn-color-2" href="https://seungjun-lee-bucket.s3.ap-northeast-2.amazonaws.com/CV.png">
+          View my CV
+        </a>
+        <a class="btn btn-color-1" href="/contact.html">
+          Contact Me
+        </a>
+      </div>
+      <div class="profile-socials">
+        <a href="https://anchovy-log.vercel.app/">
+          <img src="/images/blog.png" alt="My Blog" class="icon">
+        </a>
+        <a href="https://www.instagram.com/99jasperlee/">
+          <img src="/images/instagram.png" alt="My Instagram profile" class="icon">
+        </a>
+        <a href="https://www.linkedin.com/in/seungjun-lee0/">
+          <img src="/images/linkedin.png" alt="My LinkedIn profile" class="icon">
+        </a>
+        <a href="https://github.com/seungjun-Lee0">
+          <img src="/images/github.png" alt="My Github profile" class="icon">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="cert">
+    <div class="cert-title">
+      <h2>Certifications</h2>
+    </div>
+    <!--
+    The ul (unordered list) element is appropriately used for a list of certifications, and
+    each li (list item) contains an image of the certification badge and descriptive text.
+    This structure is semantically correct for displaying a list of items.
+    -->
+    <ul class="cert-contents">
+      <li>
+        <img src="/images/cka.png" alt="cka certification badge">
+        <p>Certified Kuberenetes Administrator</p>
+      </li>
+      <li>
+        <img src="/images/az-104.png" alt="azure certification badge">
+        <p>Azure Administrator Associate</p>
+      </li>
+      <li>
+        <img src="/images/dva-c02.png" alt="aws certification badge1">
+        <p>AWS Developer Associate</p>
+      </li>
+      <li>
+        <img src="/images/saa-c03.png" alt="aws certification badge2">
+        <p>AWS Solution Architect Associate</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="about">
+    <div class="about-title">
+      <p class="text-1">Get To Know More About</p>
+      <h2>My Skills</h2>
+    </div>
+    <!--
+    The ol tag is used to denote an ordered list of skills, which adds semantic value
+    when the order of items is important. Each skill is described using a dl (definition list)
+    ,where dt (definition term) is the name of the skill, and dd (definition description) 
+    gives further details about the skill.
+    -->
+    <ol class="about-contents">
+      <li>
+        <h3>01</h3>
+        <dl>
+          <dt>
+            full-stack</dt>
+          <dd>
+            <p>
+              Experience 2+ years in both front-end and back-end development, including Monolithic and Microservice
+              architectures.
+            </p>
+          </dd>
+        </dl>
+      </li>
+      <li>
+        <h3>02</h3>
+        <dl>
+          <dt>Cloud Engineer</dt>
+          <dd>
+            <p>
+              Hands-on experience with cloud platforms (AWS, Azure, GCP), including container orchestration using Docker
+              and Kubernetes.
+            </p>
+          </dd>
+        </dl>
+      </li>
+      <li>
+        <h3>03</h3>
+        <dl>
+          <dt>Polyglot web-dev</dt>
+          <dd>
+            <p>
+              Developed web applications using Java, Python, Javascript, and TypeScript, along with their respective
+              frameworks, including Spring, FastAPI, and React.
+            </p>
+          </dd>
+        </dl>
+      </li>
+    </ol>
+
+  </section>
+  <footer>
+    <!--
+    The repetitive sliding text is wrapped in a span inside a div, which allows for 
+    easy styling with CSS to create a sliding effect.
+    -->
+    <div class="slide-txt">
+      <span>Hire Me <img src="/images/pray.png" alt="pray image"> Hire Me <img src="/images/pray.png" alt="pray image">
+        Hire Me <img src="/images/pray.png" alt="pray image"></span>
+      <span>Hire Me <img src="/images/pray.png" alt="pray image"> Hire Me <img src="/images/pray.png" alt="pray image">
+        Hire Me <img src="/images/pray.png" alt="pray image"></span>
+      <span>Hire Me <img src="/images/pray.png" alt="pray image"> Hire Me <img src="/images/pray.png" alt="pray image">
+        Hire Me <img src="/images/pray.png" alt="pray image"></span>
+      <span>Hire Me <img src="/images/pray.png" alt="pray image"> Hire Me <img src="/images/pray.png" alt="pray image">
+        Hire Me <img src="/images/pray.png" alt="pray image"></span>
+    </div>
+
+    <nav>
+      <div class="nav-group">
+        <ul class="nav-links">
+          <li><a href="/index.html">About</a></li>
+          <li><a href="/works.html">Work</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p>Copyright &#169; 2024 Seungjun Lee. All Rights Reserved.</p>
+  </footer>
+</body>
+
+</html>

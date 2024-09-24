@@ -1,0 +1,962 @@
+/* 
+Montserrat is used as the primary font for a clean, modern look throughout the page. 
+The Jersey 10 font makes the logo a unique design.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* 
+I used 'px' for both border and filter to keep things simple and accurate. 
+For the border, 'px' makes sure the thickness stays the same, while using rem might change it if the font size changes. 
+For filters like blur and drop-shadow, px helps maintain the effect exactly as I want it since it's calculated in pixels, 
+so the result will always be consistent. 
+ 
+I used '%', 'rem' and 'vh' for width, height, margin, and padding so that the layout stays flexible and responsive. 
+Using relative units means the design can adjust itself depending on the parent element, text size, 
+or screen size. This way, the layout looks consistent and works well across different devices, 
+making it easier to manage responsive design and keep the spacing proportional. 
+*/
+
+/*
+This reset follows industry-standard practices, ensuring consistent spacing across all elements 
+and preventing unwanted margins and padding imposed by the browser’s default styles.
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", monospace;
+  background-color: #F9F9F9;
+}
+
+/*
+Removing the default list style (bullets or numbers)
+*/
+ol,
+ul {
+  list-style-type: none;
+}
+
+p {
+  color: rgb(85, 85, 85);
+}
+
+
+a {
+  color: black;
+  text-decoration: none;
+  text-decoration-color: white;
+}
+
+a:hover {
+  color: grey;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  text-decoration-color: rgb(181, 181, 181);
+}
+
+a,
+.btn {
+  transition: all 300ms ease;
+}
+
+section {
+  padding: 1.5rem 0;
+  margin: 0 5%;
+}
+
+/*********************** ANIMATIONS ***********************/
+
+/*
+The coverleft keyframe animation creates a sliding cover effect that scales 
+the element horizontally (scaleX) and skews it (skewX).
+*/
+@keyframes coverleft {
+  from {
+    transform: scaleX(1) skewX(30deg);
+    transform-origin: left;
+  }
+
+  to {
+    transform: scaleX(0) skewX(30deg);
+    transform-origin: left;
+  }
+}
+
+/*
+The noiseAnimation keyframes control how the noise effect moves. The percentages (0% to 100%) represent 
+different stages of the animation timeline, defining what happens at each point during the 1-second animation cycle. 
+The translate property moves the element along the X and Y axes in random directions, 
+mimicking the jittery motion of static noise. As the percentage increases, 
+the element shifts by different amounts, creating an unpredictable and chaotic movement that repeats infinitely.
+I referenced the following links to modify and develop my own code:
+Graham, G. (2017, May 30). Animated Grainy Texture | CSS-Tricks. CSS-Tricks. 
+https://css-tricks.com/snippets/css/animated-grainy-texture/
+*/
+@keyframes noiseAnimation {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0)
+  }
+
+  10% {
+    -webkit-transform: translate(-5%, -5%);
+    transform: translate(-5%, -5%)
+  }
+
+  20% {
+    -webkit-transform: translate(-10%, 5%);
+    transform: translate(-10%, 5%)
+  }
+
+  30% {
+    -webkit-transform: translate(5%, -10%);
+    transform: translate(5%, -10%)
+  }
+
+  40% {
+    -webkit-transform: translate(-5%, 15%);
+    transform: translate(-5%, 15%)
+  }
+
+  50% {
+    -webkit-transform: translate(-10%, 5%);
+    transform: translate(-10%, 5%)
+  }
+
+  60% {
+    -webkit-transform: translate(15%, 0);
+    transform: translate(15%, 0)
+  }
+
+  70% {
+    -webkit-transform: translate(0, 10%);
+    transform: translate(0, 10%)
+  }
+
+  80% {
+    -webkit-transform: translate(-15%, 0);
+    transform: translate(-15%, 0)
+  }
+
+  90% {
+    -webkit-transform: translate(10%, 5%);
+    transform: translate(10%, 5%)
+  }
+
+  100% {
+    -webkit-transform: translate(5%, 0);
+    transform: translate(5%, 0)
+  }
+}
+
+/*
+This keyframe animation smoothly transitions the max-width from 0% to 100%, creating a typing effect 
+where the content gradually appears between 40% and 60% of the timeline
+*/
+@keyframes typing {
+
+  0%,
+  10% {
+    max-width: 0;
+  }
+
+  40%,
+  60% {
+    max-width: 100%;
+  }
+
+  90%,
+  100% {
+    max-width: 0;
+  }
+}
+
+/*
+This animation makes the caret blink by alternating its border-color between transparent at 0% and 100%, 
+and black at 50%, creating a visible blinking effect.
+*/
+@keyframes blink-caret {
+
+  0%,
+  100% {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #000;
+  }
+}
+
+/*
+The fadeInUp keyframe smoothly fades in an element while moving it upward. 
+At 0%, the element is invisible and positioned below, and by 100%, 
+it becomes fully visible and moves to its final position.
+*/
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(70px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+The fadeInUpRotate animation works similarly to fadeInUp, but it also adds
+a 360-degree rotation as the element moves upward and fades in, 
+creating a more dynamic effect for title on contact page.
+*/
+@keyframes fadeInUpRotate {
+  0% {
+    opacity: 0;
+    transform: translateY(70px) rotate(360deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-70px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*
+This @keyframes slide-txt animation moves the text horizontally from its original position (0%)
+to -34.75rem at 100%, creating a sliding effect that shifts the content to the left. 
+I adjusted the value to -34.75rem to ensure a continuous sliding effect without any stuttering.
+*/
+@keyframes slide-txt {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-34.75rem);
+  }
+}
+
+
+/*********************** LOADING PAGE ***********************/
+
+/*
+The z-index: 9999999 ensures that the #cover div stays on top of all other elements, 
+making it the highest layer on the page. 
+The fixed position keeps the #cover element in place, even when the user scrolls, 
+covering the entire viewport. 
+Flexbox is used to perfectly center the "Loading..." text both horizontally and vertically 
+within the cover.
+The width: 280% and left: -55% are used to ensure the cover fully slides from right to left 
+off-screen. The extra width ensures the entire viewport is covered during the animation.
+*/
+#cover {
+  background: #e7e7e7;
+  z-index: 9999999;
+  position: fixed;
+  top: 0%;
+  left: -55%;
+  width: 280%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+The cubic-bezier(0.77, 0, 0.175, 1) is used to create a smooth easing effect that starts
+slowly, accelerates through the middle, and slows down toward the end.
+*/
+#cover.cover-left {
+  animation: coverleft 1.5s both cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.loading-text {
+  font-size: 2rem;
+  color: #333;
+  font-weight: bold;
+  opacity: 1;
+  transform: skewX(-30deg);
+}
+
+/*********************** NOISE EFFECT ***********************/
+
+/*
+uses relative position to control the positioning of the noise layer added via 
+the ::after pseudo-element. The hidden overflow ensures that any part of the noise 
+that moves outside the container is hidden.
+*/
+#noise {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden !important;
+}
+
+/*
+In the ::after pseudo-element, absolute position allows the noise effect to overlay 
+the entire container. The z-index: 999 places it below other important elements 
+but above lower layers. The large dimensions (height: 180%; width: 180%) and 
+negative offsets (left: -40%; top: -40%) ensure that the noise effect covers 
+the whole area and moves smoothly.
+*/
+#noise::after {
+  content: '';
+  position: absolute;
+  z-index: 999;
+  width: 180%;
+  height: 180%;
+  left: -40%;
+  top: -40%;
+  pointer-events: none;
+  will-change: transform;
+  transition: opacity 0.6s ease-out;
+  animation: noiseAnimation 1s steps(4) infinite;
+  background-image: url('/images/noise.png');
+}
+
+/*********************** ICON ***********************/
+.icon {
+  cursor: pointer;
+  height: 2rem;
+}
+
+/*********************** TEXT ***********************/
+.text-1 {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.text-2 {
+  font-size: 1.25rem;
+}
+
+/********************* BUTTONS **********************/
+.btn {
+  font-weight: 600;
+  width: 9rem;
+  border: 2px solid #333;
+  border-radius: 2rem;
+}
+
+.btn-color-1,
+.btn-color-2:hover {
+  background: rgb(53, 53, 53);
+  color: white;
+}
+
+.btn-color-1:hover {
+  background: white;
+}
+
+.btn-color-1 a {
+  color: white;
+}
+
+.btn-color-1 a:hover {
+  color: black
+}
+
+.btn-color-2 {
+  background: none;
+}
+
+.btn-color-2 a:hover {
+  color: white;
+}
+
+.btn-color-2:hover {
+  border: rgb(255, 255, 255) 0.1rem solid;
+}
+
+/******************** HEADER & NAVIGATION *********************/
+
+/*
+space-around ensures even spacing between the elements, 
+making the design balanced and easy to read.
+*/
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 17vh;
+}
+
+nav .nav-group {
+  width: 100%;
+}
+
+nav .nav-links {
+  display: flex;
+  list-style: none;
+  font-size: 1.5rem;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 3.5rem;
+}
+
+nav .nav-links li a {
+  font-size: 1rem;
+}
+
+/*
+The .logo element is styled to mimic a typing effect. (Looks Cool;)) 
+The blink-caret animation adds a blinking cursor effect by repeatedly showing and hiding the border-right. 
+hidden overflow makes the text hidden during the typing effect doesn't spill outside the container, 
+and nowrap syntax keeps the text on a single line.
+I referenced the following links to modify and develop my own code:
+Graham, G. (2022, July 21). Typewriter Effect | CSS-Tricks. CSS-Tricks. 
+https://css-tricks.com/snippets/css/typewriter-effect/
+*/
+nav .logo {
+  font-family: "Jersey 10", sans-serif;
+  font-size: 4.5rem;
+  border-right: 0.1em solid #000;
+  overflow-x: hidden;
+  white-space: nowrap;
+  animation: typing 6s steps(35) infinite, blink-caret 0.75s step-end infinite;
+}
+
+/******************** FOOTER SECTION *********************/
+.slide-txt {
+  width: 100%;
+  display: flex;
+  left: 0;
+  column-gap: 1rem;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+/*
+The span elements inside .slide-txt div tag use nowrap syntax to keep the text on 
+a single line, regardless of its length. linear and infinite syntax for the animation
+causes the text to continuously scroll across the screen.
+*/
+.slide-txt span {
+  color: #F9F9F9;
+  display: inline-block;
+  animation: slide-txt 4s linear infinite;
+  white-space: nowrap;
+  font-size: 2rem;
+}
+
+.slide-txt span img {
+  width: 1.563rem;
+  padding: 0 0.5rem;
+  margin-bottom: -0.125rem;
+}
+
+footer {
+  margin-top: 2rem;
+  background-color: #0D0D0D;
+}
+
+footer p {
+  text-align: center;
+  font-size: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+footer nav {
+  height: fit-content;
+  margin-bottom: 2rem;
+}
+
+footer nav li a {
+  color: #F9F9F9;
+}
+
+/**********************************************************/
+/*********************** INDEX.HTML ***********************/
+/**********************************************************/
+
+/******************** PROFILE SECTION *********************/
+
+/*
+The #profile-bg div act as the background for the profile section. 
+The background-image covers the entire area with background-size: cover, 
+ensuring the image scales to fit without distortion. 
+The filter: blur(3px) applies a subtle blur, drawing attention to the foreground content.
+The z-index: -1 places the background behind all other content.
+*/
+#profile-bg {
+  background-image: url('/images/background.png');
+  background-size: cover;
+  filter: blur(3px);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/*
+To ensure the profile section remains visible and well-proportioned across 
+various mobile screen sizes, I used vh for height and % for width to create a layout 
+that adapts flexibly to the viewport dimensions.
+*/
+#profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+}
+
+#profile .profile-img {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+#profile .profile-img img {
+  height: 23vh;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+}
+
+#profile .profile-bio {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 45vh;
+  opacity: 0.93;
+  background: whitesmoke;
+  padding: 1rem 0;
+  border-radius: 1rem;
+  border: 3px solid #ddd;
+}
+
+#profile .profile-title {
+  font-size: 2rem;
+}
+
+#profile .profile-contents p {
+  display: flex;
+  text-align: justify;
+  line-height: 1.7;
+  margin: 0 1rem;
+  padding-top: 1rem;
+}
+
+#profile .profile-contents {
+  display: flex;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  height: 30vh;
+  width: 91%;
+  margin: 1rem 0;
+}
+
+#profile .profile-btn {
+  width: 95%;
+  line-height: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+#profile .profile-socials {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+/********************** CERT SECTION *********************/
+#cert .cert-title {
+  font-size: 1rem;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+/*
+I used flexbox with row direction and wrap to ensure the items align 
+side-by-side and move to the next line if needed. 
+*/
+#cert ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#cert ul li {
+  display: flex;
+  width: 47%;
+  height: 20vh;
+  margin: 0.5rem 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.1));
+}
+
+#cert ul li p {
+  font-size: 0.75rem;
+  text-align: center;
+  margin: 0 1rem;
+}
+
+#cert ul li img {
+  height: 5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+}
+
+/********************** ABOUT SECTION *********************/
+#about .about-title {
+  text-align: center;
+}
+
+#about ol {
+  width: 100%;
+  color: #333;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#about ol li {
+  width: 100%;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #333;
+}
+
+/*
+The letter-spacing: -0.01em slightly reduces the space between letters, 
+making the text appear more compact. 
+*/
+#about ol li h3 {
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+  font-weight: 100;
+}
+
+#about ol li dl dt {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+/*
+The 'right' direction is applied to every even list item to create 
+an alternating visual effect.
+*/
+#about ol li:nth-child(2n) h3,
+#about ol li:nth-child(2n) dl dt,
+#about ol li:nth-child(2n) dl dd p {
+  text-align: right;
+}
+
+#about ol li dl dd p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/**********************************************************/
+/*********************** WORKS.HTML ***********************/
+/**********************************************************/
+
+/********************** WORKS SECTION *********************/
+#works {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 0.5rem;
+}
+
+#works .work-title {
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+/*
+By setting the top and bottom to 8%, the dotted line effect stays within the work cards, 
+preventing it from overflowing. 
+The left: 60% positions the timeline effect at the center of the section 
+where the project dates are listed.
+The z-index: -1 ensures the timeline is placed behind other content.
+*/
+#works .timeline {
+  position: absolute;
+  top: 8%;
+  left: 60%;
+  bottom: 8%;
+  z-index: -1;
+  border-left: 6px dotted #333;
+}
+
+#works .work-contents {
+  display: flex;
+  gap: 5rem;
+  flex-direction: column;
+}
+
+#works .work-card {
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 1rem;
+  filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.1));
+}
+
+/*
+The border-radius: 1rem 1rem 0 0 rounds only the top corners of the image.
+*/
+#works .work-card img {
+  width: 100%;
+  border-radius: 1rem 1rem 0 0;
+}
+
+#works .work-card-btn-group {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#works .work-card-btn {
+  display: flex;
+  margin: 0.5rem;
+  padding: 0.9rem;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1rem;
+}
+
+#works .work-card-btn a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+}
+
+/*
+The first .work-card-btn is set to width: 9%, 
+ensuring the button (which is Github link button) takes up minimal space, 
+aligning it with the rest of the card content without dominating the layout.
+*/
+#works .work-card-btn:nth-child(1) {
+  width: 9%;
+}
+
+#works .work-card-btn:nth-child(2) {
+  width: 75%;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+}
+
+/*
+To maintain design consistency, the background colors of the buttons in each portfolio card
+are matched to the respective portfolio background colors. 
+*/
+#works .work-card:nth-child(2) .work-card-btn:nth-child(2) {
+  background: #93A8FC;
+}
+
+#works .work-card:nth-child(3) .work-card-btn:nth-child(2) {
+  color: #7C7B7A;
+  background: #D5CBC2;
+}
+
+#works .work-card:nth-child(4) .work-card-btn:nth-child(2) {
+  background: #7C7B7A;
+}
+
+#works .work-card-btn img {
+  width: 2rem;
+  height: 2rem;
+}
+
+/**********************************************************/
+/********************** CONTACT.HTML **********************/
+/**********************************************************/
+
+/********************* CONTACT SECTION ********************/
+#contact {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+#contact .contact-img-wrap img {
+  width: 100%;
+  opacity: 0;
+  animation: fadeInLeft 0.8s ease-out forwards;
+  animation-delay: 1.8s;
+  filter: drop-shadow(3px 3px 10px rgba(0, 0, 0, 0.4))
+}
+
+#contact .contact-text-wrap {
+  width: 100%;
+  padding: 1rem 0;
+  position: relative;
+
+}
+
+/*
+The animation causes each letter to gradually fade in while rotating upwards, 
+making the text appear dynamically. 
+The initial opacity 0 ensures the characters are invisible at first, 
+and they become visible as the animation progresses.
+*/
+#contact .chars {
+  font-size: 2rem;
+  font-weight: 600;
+  display: inline-block;
+  animation: fadeInUpRotate 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+/*
+These delays make the text more engaging by making each letter fade in 
+and rotate one after another, rather than all at once.
+*/
+#contact .contact-title .chars:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+#contact .contact-title .chars:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+#contact .contact-title .chars:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+#contact .contact-title .chars:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+#contact .contact-title .chars:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+#contact .contact-title .chars:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+#contact .contact-title .chars:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+#contact .info-list {
+  padding-top: 1rem;
+}
+
+#contact .info-list dl {
+  opacity: 0;
+  margin-bottom: 1.8rem;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/*
+These delays make the contents more engaging by making each sentence fadeInUp
+*/
+#contact .info-list dl:nth-child(1) {
+  animation-delay: 2s;
+}
+
+#contact .info-list dl:nth-child(2) {
+  animation-delay: 2.3s;
+}
+
+#contact .info-list dl:nth-child(3) {
+  animation-delay: 2.6s;
+}
+
+#contact .info-list dl:nth-child(4) {
+  animation-delay: 2.9s;
+}
+
+/*
+The dt.info-name is set to relative position and inline-block display to allow precise positioning
+of the ::before element, which is used to create an underline effect beneath the text. 
+The 1px of the height and bottom create a thin underline under each label in the contact section.
+*/
+#contact dt.info-name {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+#contact dt.info-name::before {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: #121111;
+}
+
+#contact dd {
+  font-size: 1rem;
+}
+
+/********************** REFERENCE SECTION *********************/
+#reference {
+  padding: 0;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 3.3s;
+}
+
+#reference .ref-title h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  padding-bottom: 1rem;
+}
+
+#reference .ref-contents dl {
+  padding-bottom: 1rem;
+}
+
+#reference .ref-contents dl dt {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+#reference .ref-contents dl dd {
+  border: 1px solid;
+  padding: 1rem;
+}
+
+/*
+The word-wrap: break-word makes sure long URLs or text in the links break onto the next line
+instead of overflowing out of the container. 
+The white-space: normal allows the text to wrap naturally, 
+making it easier to read long links or references.
+*/
+#reference .ref-contents dl dd a {
+  word-wrap: break-word;
+  white-space: normal;
+}

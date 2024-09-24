@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Personal Portfolio - contact page</title>
+
+  <!-- 
+  This section is also present in index.html, where I’ve provided detailed comments.
+  -->
+  <meta charset="UTF-8">
+  <meta name="author" content="Seungjun Lee - n10399411">
+  <meta name="description" content="It contains my contact information and image references.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!--
+  This <div> acts as a container for adding a "noise" effect 
+  (a visual overlay, often resembling static or grainy texture).
+  I didn’t add the noise effect to other pages to keep a clean look, 
+  but for the contact section, I wanted to create more atmosphere;)
+  -->
+  <div id="noise">
+    <header>
+      <!-- 
+      This section is also present in index.html, where I’ve provided detailed comments.
+      -->
+      <div id="cover" class="cover-left">
+        <span class="loading-text">Loading...</span>
+      </div>
+      <nav>
+        <div class="logo">My Portfolio</div>
+        <div class="nav-group">
+          <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/works.html">Work</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section id="contact">
+      <div class="contact-img-wrap">
+        <img src="/images/contact.png" alt="contact image">
+      </div>
+      <div class="contact-text-wrap">
+        <!--
+        This div tag contains a title by individually wrapping each letter of the word "CONTACT" in its own <h2> tag. 
+        Each letter is given the class chars, allowing individual styling and animations for each character. 
+        This setup enables you to animate each letter separately for a dynamic visual effect.
+        -->
+        <div class="contact-title">
+          <h2 class="chars">C</h2>
+          <h2 class="chars">O</h2>
+          <h2 class="chars">N</h2>
+          <h2 class="chars">T</h2>
+          <h2 class="chars">A</h2>
+          <h2 class="chars">C</h2>
+          <h2 class="chars">T</h2>
+        </div>
+        <!--
+        This section contains organized contact information using description lists. 
+        Each item, like Email, Blog, GitHub, and LinkedIn, is clearly labeled and 
+        includes clickable links, allowing users to easily access these details or send an email. 
+        The layout provides a clean and structured way to present contact information.
+        -->
+        <div class="info-list">
+          <dl>
+            <dt class="info-name">Email</dt>
+            <dd>
+              <a href="mailto:sjun0500@gmail.com">
+                sjun0500@gmail.com </a>
+            </dd>
+          </dl>
+          <dl>
+            <dt class="info-name">Blog</dt>
+            <dd>
+              <a href="https://anchovy-log.vercel.app/">
+                https://anchovy-log.vercel.app/ </a>
+            </dd>
+          </dl>
+          <dl>
+            <dt class="info-name">Github</dt>
+            <dd>
+              <a href="https://github.com/seungjun-Lee0">
+                https://github.com/seungjun-Lee0/ </a>
+            </dd>
+          </dl>
+
+          <dl>
+            <dt class="info-name">Linkedin</dt>
+            <dd>
+              <a href="https://www.linkedin.com/in/seungjun-lee0/">
+                https://www.linkedin.com/in/seungjun-lee0/ </a>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="reference">
+      <div class="ref-title">
+        <h2>IMAGE REFERENCE</h2>
+      </div>
+      <!--
+      This section uses another dl (description list) to provide image references. 
+      Each reference has a dt for the title and a dd for the clickable URL. 
+      Structuring the references this way makes the content more organized and clear, 
+      helping users quickly find the source information for the images used in the portfolio.
+      -->
+      <div class="ref-contents">
+        <dl>
+          <dt class="ref-subtitle">AWS Certification Badges</dt>
+          <dd>
+            <a href="https://aws.amazon.com/certification/">
+              AWS Certification - Validate AWS Cloud Skills - Get AWS Certified. (n.d.). Amazon Web Services, Inc.
+              https://aws.amazon.com/certification/
+            </a>
+          </dd>
+        </dl>
+        <dl>
+          <dt class="ref-subtitle">Azure Certification Badge</dt>
+          <dd>
+            <a
+              href="https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/?practice-assessment-type=certification">
+              Bipach. (n.d.). Microsoft Certified: Azure Administrator Associate - Certifications. Microsoft Learn.
+              https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/?practice-assessment-type=certification
+            </a>
+          </dd>
+        </dl>
+        <dl>
+          <dt class="ref-subtitle">CKA Certification Badge</dt>
+          <dd>
+            <a href="https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/">
+              The Linux Foundation. (2024, June 11). Certified Kubernetes Administrator (CKA) | Linux Foundation. Linux
+              Foundation - Training.
+              https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/
+            </a>
+          </dd>
+        </dl>
+        <dl>
+          <dt class="ref-subtitle">Avatar image included in the index.html</dt>
+          <dd>
+            <a href="https://notion-avatar.vercel.app/">
+              Notion Avatar maker. (n.d.). Notion Avatar Maker. https://notion-avatar.vercel.app/
+            </a>
+          </dd>
+        </dl>
+        <dl>
+          <dt class="ref-subtitle">All icons are sourced from Freepik</dt>
+          <dd>
+            <a href="https://www.freepik.com/">
+              Freepik | Create great designs, faster. (n.d.). Freepik. https://www.freepik.com/
+            </a>
+          </dd>
+        </dl>
+
+      </div>
+    </section>
+
+    <footer>
+      <!-- 
+      This section is also present in index.html, where I’ve provided detailed comments.
+      -->
+      <div class="slide-txt">
+        <span>Hire Me <img src="/images/pray.png" alt="pray image"> Hire Me <img src="/images/pray.png" alt="pray image">
+          Hire Me <img src="/images/pray.png" alt="pray image"></span>
+        <span>Hire Me <img src="/images/pray.png" alt="pray image"> Hire Me <img src="/images/pray.png" alt="pray image">
+          Hire Me <img src="/images/pray.png" alt="pray image"></span>
+        <span>Hire Me <img src="/images/pray.png" alt="pray image"> Hire Me <img src="/images/pray.png" alt="pray image">
+          Hire Me <img src="/images/pray.png" alt="pray image"></span>
+        <span>Hire Me <img src="/images/pray.png" alt="pray image"> Hire Me <img src="/images/pray.png" alt="pray image">
+          Hire Me <img src="/images/pray.png" alt="pray image"></span>
+      </div>
+
+      <nav>
+        <div class="nav-group">
+          <ul class="nav-links">
+            <li><a href="/index.html">About</a></li>
+            <li><a href="/works.html">Work</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2024 Seungjun Lee. All Rights Reserved.</p>
+    </footer>
+  </div>
+</body>
+
+</html>
